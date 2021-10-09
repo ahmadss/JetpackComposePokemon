@@ -153,6 +153,9 @@ fun PokemonList(
 
         items(itemCount){
             if(it >= itemCount - 1 && !endReached && !isLoadibg && !isSearching){
+                LaunchedEffect(key1 = true){
+                    viewModel.LoadPokemonPagination()
+                }
                 viewModel.LoadPokemonPagination()
             }
             PokedexRow(rowIndex = it, entries = pokemonList, navController = navController)
